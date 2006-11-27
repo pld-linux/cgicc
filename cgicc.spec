@@ -5,11 +5,14 @@ Version:	3.2.3
 Release:	0.1
 License:	GPL v2
 Group:		Libraries
-BuildRequires:	doxygen
-BuildRequires:	libstdc++-devel
 Source0:	ftp://ftp.cgicc.org/%{name}-%{version}.tar.bz2
 # Source0-md5:	cd7a7a5a1fd186bd8f481c4e17354a0b
 URL:		http://www.cgicc.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	doxygen
+BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
