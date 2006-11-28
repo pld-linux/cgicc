@@ -1,3 +1,5 @@
+# TODO:	- provide subpackages with cgi and fastcgi demos
+# NOTE:	- cgicc-config is not included in subpackage -devel (but nothing interesting is shown by it)
 # Conditional build:
 %bcond_without	static_libs # don't build static libraries
 #
@@ -80,7 +82,8 @@ Statyczna wersja biblioteki cgicc.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no}
+	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no} \
+	--enable-demos=no
 %{__make}
 
 %install
