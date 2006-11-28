@@ -12,7 +12,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,6 +28,20 @@ following functions:
   for cookies.
 - Supports HTTP file upload.
 - Compatible with FastCGI.
+
+%description -l pl
+GNU cgicc to biblioteka klas C++ znacznie upraszczaj±ca tworzenie
+aplikacji CGI dla WWW. cgicc wykonuje nastêpuj±ce funkcje:
+- w sposób przezroczysty analizuje dane z formularzy GET i POST
+- udostêpnia metody uzyskiwania ³añcuchów znaków, liczb ca³kowitych i
+  zmiennoprzecinkowych oraz opcji jednokrotnego i wielokrotnego wyboru
+  z danych formularzy
+- udostêpnia metody do zapisu i odtwarzania ¶rodowiska CGI
+  pomagaj±ce przy ¶ledzeniu aplikacji
+- udostêpnia pe³ne mo¿liwo¶ci generowania HTML-a w locie, z obs³ug±
+  ciasteczek
+- obs³uguje wysy³anie plików po HTTP
+- jest kompatybilna z FastCGI.
 
 %package devel
 Summary:	A C++ library for CGI programming - header files
@@ -62,7 +76,6 @@ Statyczna wersja biblioteki cgicc.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-cp -f /usr/share/automake/config.sub .
 %configure
 %{__make}
 
