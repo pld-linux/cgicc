@@ -94,13 +94,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/html/*
-%attr(755,root,root) %{_libdir}/*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.so
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/cgicc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/lib*.a
