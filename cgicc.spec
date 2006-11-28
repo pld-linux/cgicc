@@ -1,9 +1,12 @@
+# Conditional build:
+%bcond_without	static_libs # don't build static libraries
+#
 Summary:	A C++ library for CGI programming
 Summary(pl):	Biblioteka C++ do programowania CGI
 Name:		cgicc
 Version:	3.2.3
 Release:	0.1
-License:	GPL v2
+License:	library: LGPL v2.1, demos: GPL v2, documentation: GFDL v1.1
 Group:		Libraries
 Source0:	ftp://ftp.cgicc.org/%{name}-%{version}.tar.bz2
 # Source0-md5:	cd7a7a5a1fd186bd8f481c4e17354a0b
@@ -76,7 +79,8 @@ Statyczna wersja biblioteki cgicc.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no}
 %{__make}
 
 %install
@@ -102,6 +106,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_includedir}/cgicc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
