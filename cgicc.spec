@@ -4,7 +4,7 @@
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	A C++ library for CGI programming
-Summary(pl):	Biblioteka C++ do programowania CGI
+Summary(pl.UTF-8):   Biblioteka C++ do programowania CGI
 Name:		cgicc
 Version:	3.2.3
 Release:	0.1
@@ -34,42 +34,42 @@ following functions:
 - Supports HTTP file upload.
 - Compatible with FastCGI.
 
-%description -l pl
-GNU cgicc to biblioteka klas C++ znacznie upraszczaj±ca tworzenie
-aplikacji CGI dla WWW. cgicc wykonuje nastêpuj±ce funkcje:
-- w sposób przezroczysty analizuje dane z formularzy GET i POST
-- udostêpnia metody uzyskiwania ³añcuchów znaków, liczb ca³kowitych i
+%description -l pl.UTF-8
+GNU cgicc to biblioteka klas C++ znacznie upraszczajÄ…ca tworzenie
+aplikacji CGI dla WWW. cgicc wykonuje nastÄ™pujÄ…ce funkcje:
+- w sposÃ³b przezroczysty analizuje dane z formularzy GET i POST
+- udostÄ™pnia metody uzyskiwania Å‚aÅ„cuchÃ³w znakÃ³w, liczb caÅ‚kowitych i
   zmiennoprzecinkowych oraz opcji jednokrotnego i wielokrotnego wyboru
   z danych formularzy
-- udostêpnia metody do zapisu i odtwarzania ¶rodowiska CGI
-  pomagaj±ce przy ¶ledzeniu aplikacji
-- udostêpnia pe³ne mo¿liwo¶ci generowania HTML-a w locie, z obs³ug±
+- udostÄ™pnia metody do zapisu i odtwarzania Å›rodowiska CGI
+  pomagajÄ…ce przy Å›ledzeniu aplikacji
+- udostÄ™pnia peÅ‚ne moÅ¼liwoÅ›ci generowania HTML-a w locie, z obsÅ‚ugÄ…
   ciasteczek
-- obs³uguje wysy³anie plików po HTTP
+- obsÅ‚uguje wysyÅ‚anie plikÃ³w po HTTP
 - jest kompatybilna z FastCGI.
 
 %package devel
 Summary:	A C++ library for CGI programming - header files
-Summary(pl):	Biblioteka C++ do programowania CGI - pliki nag³ówkowe
+Summary(pl.UTF-8):   Biblioteka C++ do programowania CGI - pliki nagÅ‚Ã³wkowe
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for cgicc library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki cgicc.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki cgicc.
 
 %package static
 Summary:	A C++ library for CGI programming - static version
-Summary(pl):	Biblioteka C++ do programowania CGI - wersja statyczna
+Summary(pl.UTF-8):   Biblioteka C++ do programowania CGI - wersja statyczna
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of cgicc library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki cgicc.
 
 %prep
