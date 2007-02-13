@@ -4,7 +4,7 @@
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	A C++ library for CGI programming
-Summary(pl.UTF-8):   Biblioteka C++ do programowania CGI
+Summary(pl.UTF-8):	Biblioteka C++ do programowania CGI
 Name:		cgicc
 Version:	3.2.3
 Release:	0.1
@@ -50,7 +50,7 @@ aplikacji CGI dla WWW. cgicc wykonuje następujące funkcje:
 
 %package devel
 Summary:	A C++ library for CGI programming - header files
-Summary(pl.UTF-8):   Biblioteka C++ do programowania CGI - pliki nagłówkowe
+Summary(pl.UTF-8):	Biblioteka C++ do programowania CGI - pliki nagłówkowe
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -62,7 +62,7 @@ Pliki nagłówkowe biblioteki cgicc.
 
 %package static
 Summary:	A C++ library for CGI programming - static version
-Summary(pl.UTF-8):   Biblioteka C++ do programowania CGI - wersja statyczna
+Summary(pl.UTF-8):	Biblioteka C++ do programowania CGI - wersja statyczna
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
