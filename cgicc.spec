@@ -1,19 +1,20 @@
 # TODO:	- provide subpackages with cgi and fastcgi demos
-# NOTE:	- cgicc-config is not included in subpackage -devel (but nothing interesting is shown by it)
+#
 # Conditional build:
 %bcond_without	static_libs # don't build static libraries
 #
 Summary:	A C++ library for CGI programming
 Summary(pl.UTF-8):	Biblioteka C++ do programowania CGI
 Name:		cgicc
-Version:	3.2.3
-Release:	0.1
-License:	library: LGPL v2.1, demos: GPL v2, documentation: GFDL v1.1
+Version:	3.2.12
+Release:	1
+License:	LGPL v3+ (library), FDL v1.1+ (documentation)
 Group:		Libraries
-Source0:	ftp://ftp.cgicc.org/%{name}-%{version}.tar.bz2
-# Source0-md5:	cd7a7a5a1fd186bd8f481c4e17354a0b
-URL:		http://www.cgicc.org/
-BuildRequires:	autoconf
+Source0:	http://ftp.gnu.org/gnu/cgicc/%{name}-%{version}.tar.gz
+# Source0-md5:	7b91620600d9a889e230617747e515c2
+Patch0:		%{name}-link.patch
+URL:		http://www.gnu.org/software/cgicc/
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libstdc++-devel
@@ -53,6 +54,7 @@ Summary:	A C++ library for CGI programming - header files
 Summary(pl.UTF-8):	Biblioteka C++ do programowania CGI - pliki nagłówkowe
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 Header files for cgicc library.
@@ -72,8 +74,20 @@ Static version of cgicc library.
 %description static -l pl.UTF-8
 Statyczna wersja biblioteki cgicc.
 
+%package apidocs
+Summary:	API documentation for cgicc library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki cgicc
+Group:		Documentation
+
+%description apidocs
+API documentation for cgicc library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki cgicc.
+
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -82,8 +96,8 @@ Statyczna wersja biblioteki cgicc.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-static=%{?with_static_libs:yes}%{!?with_static_libs:no} \
-	--enable-demos=no
+	--disable-demos \
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
@@ -91,6 +105,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# packaged as %doc in -apidocs
+%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -101,16 +118,24 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS ChangeLog NEWS README THANKS doc/html/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libcgicc.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcgicc.so.3
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_bindir}/cgicc-config
+%attr(755,root,root) %{_libdir}/libcgicc.so
+%{_libdir}/libcgicc.la
 %{_includedir}/cgicc
+%{_pkgconfigdir}/cgicc.pc
+%{_aclocaldir}/cgicc.m4
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libcgicc.a
 %endif
+
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/html/*

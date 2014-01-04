@@ -1,0 +1,11 @@
+--- cgicc-3.2.12/configure.ac.orig	2014-01-01 11:23:25.000000000 +0100
++++ cgicc-3.2.12/configure.ac	2014-01-04 21:13:33.860863704 +0100
+@@ -27,7 +27,7 @@
+ dnl Checks for libraries.
+ 
+ dnl setup for networking functions
+-AC_CHECK_LIB(nsl, gethostbyaddr, LIB_NET="-lnsl")
++AC_CHECK_FUNC([gethostbyaddr], , [AC_CHECK_LIB(nsl, gethostbyaddr, LIB_NET="-lnsl")])
+ AC_SUBST(LIB_NET)
+ 
+ dnl check whether to link against libstdc++
