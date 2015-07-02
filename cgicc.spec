@@ -2,12 +2,12 @@
 #
 # Conditional build:
 %bcond_without	static_libs # don't build static libraries
-#
+
 Summary:	A C++ library for CGI programming
 Summary(pl.UTF-8):	Biblioteka C++ do programowania CGI
 Name:		cgicc
 Version:	3.2.13
-Release:	1
+Release:	2
 License:	LGPL v3+ (library), FDL v1.1+ (documentation)
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/cgicc/%{name}-%{version}.tar.gz
@@ -40,10 +40,10 @@ GNU cgicc to biblioteka klas C++ znacznie upraszczająca tworzenie
 aplikacji CGI dla WWW. cgicc wykonuje następujące funkcje:
 - w sposób przezroczysty analizuje dane z formularzy GET i POST
 - udostępnia metody uzyskiwania łańcuchów znaków, liczb całkowitych i
-  zmiennoprzecinkowych oraz opcji jednokrotnego i wielokrotnego wyboru
-  z danych formularzy
-- udostępnia metody do zapisu i odtwarzania środowiska CGI
-  pomagające przy śledzeniu aplikacji
+  zmiennoprzecinkowych oraz opcji jednokrotnego i wielokrotnego wyboru z
+  danych formularzy
+- udostępnia metody do zapisu i odtwarzania środowiska CGI pomagające
+  przy śledzeniu aplikacji
 - udostępnia pełne możliwości generowania HTML-a w locie, z obsługą
   ciasteczek
 - obsługuje wysyłanie plików po HTTP
@@ -78,6 +78,9 @@ Statyczna wersja biblioteki cgicc.
 Summary:	API documentation for cgicc library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki cgicc
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for cgicc library.
