@@ -6,12 +6,12 @@
 Summary:	A C++ library for CGI programming
 Summary(pl.UTF-8):	Biblioteka C++ do programowania CGI
 Name:		cgicc
-Version:	3.2.17
+Version:	3.2.19
 Release:	1
 License:	LGPL v3+ (library), FDL v1.1+ (documentation)
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/cgicc/%{name}-%{version}.tar.gz
-# Source0-md5:	ea9d40e09471dfe6be363af5b736904c
+# Source0-md5:	a795531556aef314018834981a1466c9
 Patch0:		%{name}-link.patch
 URL:		http://www.gnu.org/software/cgicc/
 BuildRequires:	autoconf >= 2.50
@@ -110,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # packaged as %doc in -apidocs
-%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc/%{name}-3.2.16
+%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
