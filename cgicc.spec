@@ -78,9 +78,7 @@ Statyczna wersja biblioteki cgicc.
 Summary:	API documentation for cgicc library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki cgicc
 Group:		Documentation
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for cgicc library.
